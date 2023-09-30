@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\SocketAddress.h" />
     <ClInclude Include="..\..\src\PlatformSocketIncludes.h" />
+    <ClInclude Include="..\..\src\SocketAddressFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

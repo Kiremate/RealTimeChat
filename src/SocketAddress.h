@@ -1,6 +1,7 @@
 #pragma once
 #include "PlatformSocketIncludes.h"
 #include <cstdint>
+#include <memory>
 class SocketAddress {
 public:
 	SocketAddress(uint32_t inAddress, uint16_t inPort) { // IPV4 Constructor
@@ -31,3 +32,5 @@ private:
 		return &mSockAddr6;
 	}
 };
+
+typedef std::shared_ptr<SocketAddress> SocketAddressPtr;

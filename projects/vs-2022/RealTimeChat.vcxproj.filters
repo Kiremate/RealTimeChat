@@ -26,5 +26,8 @@
     <ClInclude Include="..\..\src\PlatformSocketIncludes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\SocketAddressFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
