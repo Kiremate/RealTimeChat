@@ -1,3 +1,4 @@
+#pragma once
 #if defined (_WIN32) || defined(__CYGWIN)// Windows x64 - x86
 	#include <WinSock2.h>
 	#include <WS2tcpip.h>

@@ -2,6 +2,12 @@
 #include "PlatformSocketIncludes.h"
 #include <cstdint>
 #include <memory>
+
+enum SocketAddressFamily {
+	INET = AF_INET,
+	INET6 = AF_INET6
+};
+
 class SocketAddress {
 public:
 	SocketAddress(uint32_t inAddress, uint16_t inPort) { // IPV4 Constructor
@@ -18,7 +24,10 @@ public:
 		memcpy(&mSockAddr, &inSockAddr, sizeof(inSockAddr));
 	}
 
+	size_t GetSize() const { return sizeof(sockaddr); }
+
 private:
+	friend class UDPSocket;
 	union {
 		sockaddr mSockAddr;
 		sockaddr_in mSockAddr4;
