@@ -28,6 +28,7 @@ public:
 
 private:
 	friend class UDPSocket;
+	friend class TCPSocket;
 	union {
 		sockaddr mSockAddr;
 		sockaddr_in mSockAddr4;

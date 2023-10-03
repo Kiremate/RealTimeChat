@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\src\TCPSocket.cpp" />
     <ClCompile Include="..\..\src\UDPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>

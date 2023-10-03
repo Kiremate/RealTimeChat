@@ -7,7 +7,7 @@ int UDPSocket::Bind(const SocketAddress& inBindAddress)
 	if (error != 0)
 	{
 		SocketUtil::ReportError(L"UDPSocket::Bind");
-		return SocketUtil::GetLastError();
+		return -SocketUtil::GetLastError();
 	}
 	return NO_ERROR;
 }
