@@ -37,6 +37,11 @@ int UDPSocket::ReceiveFrom(void* inBuffer, int inLen, SocketAddress& outFrom)
 	}
 }
 
+int UDPSocket::SetNonBlockingMode(bool inShouldBeNonBlocking)
+{
+	return BloodSocket::SetNonBlockingMode(inShouldBeNonBlocking);
+}
+
 UDPSocket::~UDPSocket()
 {
 	closesocket(mSocket);

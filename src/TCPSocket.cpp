@@ -13,6 +13,7 @@ int TCPSocket::Connect(const SocketAddress& inAddress)
 		SocketUtil::ReportError(L"TCPSocket::Connect");
 		return -SocketUtil::GetLastError();
 	}
+	return NO_ERROR;
 }
 
 int TCPSocket::Bind(const SocketAddress& inToAddress)
@@ -67,4 +68,9 @@ int TCPSocket::Receive(void* inBuffer, int inLen)
 		return -SocketUtil::GetLastError();
 	}
 	return bytesReceivedCount;
+}
+
+int TCPSocket::SetNonBlockingMode(bool inShouldBeNonBlocking)
+{
+	return BloodSocket::SetNonBlockingMode(inShouldBeNonBlocking);
 }
