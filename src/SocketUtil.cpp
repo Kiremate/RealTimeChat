@@ -1,5 +1,6 @@
 #include "SocketUtil.h"
 #include "BloodSocket.h"
+#include "FDSetWrapper.h"
 #include <iostream>
 
 
@@ -41,19 +42,49 @@ void SocketUtil::FillVectorFromSet(std::vector<std::shared_ptr<BloodSocket>>* ou
 	}
 }
 int SocketUtil::Select(const std::vector<std::shared_ptr<BloodSocket>>* inReadSet, std::vector<std::shared_ptr<BloodSocket>>* outReadSet,
-	const std::vector<std::shared_ptr<BloodSocket>>* inWriteSet, std::vector<std::shared_ptr<BloodSocket>>* outWriteSet,
-	const std::vector<std::shared_ptr<BloodSocket>>* inExceptSet, std::vector<std::shared_ptr<BloodSocket>>* outExceptSet) {
-	fd_set read, write, except;
-	fd_set* readPtr = FillSetFromVector(read, inReadSet);
-	fd_set* writePtr = FillSetFromVector(write, inWriteSet);
-	fd_set* exceptPtr = FillSetFromVector(except, inExceptSet);
+    const std::vector<std::shared_ptr<BloodSocket>>* inWriteSet, std::vector<std::shared_ptr<BloodSocket>>* outWriteSet,
+    const std::vector<std::shared_ptr<BloodSocket>>* inExceptSet, std::vector<std::shared_ptr<BloodSocket>>* outExceptSet) {
 
-	int toRet = select(0, readPtr, writePtr, exceptPtr, nullptr);
-	if (toRet > 0) {
-		FillVectorFromSet(outReadSet, inReadSet, read);
-		FillVectorFromSet(outWriteSet, inWriteSet, write);
-		FillVectorFromSet(outExceptSet, inExceptSet, except);
-	}
+    FdSetWrapper readWrapper, writeWrapper, exceptWrapper;
 
-	return toRet;
+    if (inReadSet) {
+        for (const auto& socket : *inReadSet) {
+            readWrapper.AddSocket(socket);
+        }
+    }
+    if (inWriteSet) {
+        for (const auto& socket : *inWriteSet) {
+            writeWrapper.AddSocket(socket);
+        }
+    }
+    if (inExceptSet) {
+        for (const auto& socket : *inExceptSet) {
+            exceptWrapper.AddSocket(socket);
+        }
+    }
+
+    int toRet = select(0, readWrapper.GetRawFdSet(), writeWrapper.GetRawFdSet(), exceptWrapper.GetRawFdSet(), nullptr);
+
+    if (toRet > 0) {
+        if (outReadSet) {
+            outReadSet->clear();
+            for (auto socket : readWrapper) {
+                outReadSet->push_back(socket);
+            }
+        }
+        if (outWriteSet) {
+            outWriteSet->clear();
+            for (auto socket : writeWrapper) {
+                outWriteSet->push_back(socket);
+            }
+        }
+        if (outExceptSet) {
+            outExceptSet->clear();
+            for (auto socket : exceptWrapper) {
+                outExceptSet->push_back(socket);
+            }
+        }
+    }
+
+    return toRet;
 }

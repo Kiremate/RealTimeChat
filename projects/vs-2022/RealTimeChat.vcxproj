@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BloodSocket.cpp" />
+    <ClCompile Include="..\..\src\FdSetWrapper.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\SocketUtil.cpp" />
     <ClCompile Include="..\..\src\TCPSocket.cpp" />
@@ -143,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\BloodSocket.h" />
+    <ClInclude Include="..\..\src\FdSetWrapper.h" />
     <ClInclude Include="..\..\src\PlatformErrorIncludes.h" />
     <ClInclude Include="..\..\src\Server.h" />
     <ClInclude Include="..\..\src\SocketAddress.h" />
