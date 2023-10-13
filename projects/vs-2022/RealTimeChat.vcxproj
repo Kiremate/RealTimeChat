@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\BloodSocket.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\src\SocketUtil.cpp" />
     <ClCompile Include="..\..\src\TCPSocket.cpp" />
     <ClCompile Include="..\..\src\UDPSocket.cpp" />
   </ItemGroup>

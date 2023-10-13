@@ -1,27 +1,26 @@
 #pragma once
-#include <iostream>
 #include "PlatformErrorIncludes.h"
 
+#include <memory>
+#include <iostream>
+#include <vector>
 
+class BloodSocket;
 class SocketUtil {
 
 public:
-	static void ReportError(const wchar_t* inOperationDesc) {
-		std::wcerr << L"Error: " << inOperationDesc << L" - " << GetLastError() << std::endl;
-	}
-	static int GetLastError() {
-	#if defined (_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
-			return WSAGetLastError();  // Windows-specific
-	#elif defined(__linux__)
-			return errno;  // Linux-specific, include <errno.h>
-	#elif defined(unix) || defined(__unix__) || defined(__unix)
-			return errno;  // Unix-specific, include <errno.h>
-	#else
-			// Unknown platform
-			return -1;
-	#endif
-	}
+	static void ReportError(const wchar_t* inOperationDesc);
+	static int GetLastError();
 
+	static fd_set* FillSetFromVector(fd_set& outSet, const std::vector<std::shared_ptr<BloodSocket>>* inSockets);
+	static void FillVectorFromSet(
+		std::vector<std::shared_ptr<BloodSocket>>* outSockets,
+		const std::vector<std::shared_ptr<BloodSocket>>* inSockets, const fd_set& inSet);
+	static int Select(
+		const std::vector<std::shared_ptr<BloodSocket>>* inReadSet, std::vector<std::shared_ptr<BloodSocket>>* outReadSet,
+		const std::vector<std::shared_ptr<BloodSocket>>* inWriteSet, std::vector<std::shared_ptr<BloodSocket>>* outWriteSet,
+		const std::vector<std::shared_ptr<BloodSocket>>* inExceptSet, std::vector<std::shared_ptr<BloodSocket>>* outExceptSet);
+	
 private:
 
 };
