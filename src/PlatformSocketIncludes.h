@@ -1,6 +1,6 @@
 #pragma once
 #if defined(_WIN32) || defined(__CYGWIN)// Windows x64 - x86
-#define WIN32_LEAN_AND_MEAN  // Exclude rarely-used stuff from Windows headers
+#define WIN32_LEAN_AND_MEAN  
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <Windows.h>
@@ -9,6 +9,7 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <fcntl.h>
+#include <unistd.h>
 typedef int SOCKET;
 #define INVALID_SOCKET -1
 
@@ -24,5 +25,5 @@ typedef int SOCKET;
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
-// ... and so on
+#include <unistd.h>
 #endif

@@ -33,7 +33,7 @@ int UDPSocket::SendTo(const void* inData, int inLen, const SocketAddress& inTo)
 
 int UDPSocket::ReceiveFrom(void* inBuffer, int inLen, SocketAddress& outFrom)
 {
-	int fromLength = outFrom.GetSize();
+	socklen_t fromLength = sizeof(struct sockaddr);
 	int readyByteCount = recvfrom(mSocket, static_cast<char*>(inBuffer), inLen, 0, &outFrom.mSockAddr, &fromLength);
 	if (readyByteCount >= 0)
 		return readyByteCount;

@@ -39,7 +39,7 @@ int TCPSocket::Listen(int inBackLog)
 
 std::shared_ptr<TCPSocket> TCPSocket::Accept(SocketAddress& inFromAddress)
 {
-	int length = inFromAddress.GetSize();
+	socklen_t length = sizeof(struct sockaddr);
 	SOCKET newSocket = accept(mSocket, &inFromAddress.mSockAddr, &length);
 	if (newSocket != INVALID_SOCKET) {
 		return TCPSocketPtr(new TCPSocket(newSocket));
