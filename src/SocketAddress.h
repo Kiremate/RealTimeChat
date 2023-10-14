@@ -1,6 +1,7 @@
 #pragma once
 #include "PlatformSocketIncludes.h"
 #include <cstdint>
+#include <cstring>
 #include <memory>
 
 enum SocketAddressFamily {
