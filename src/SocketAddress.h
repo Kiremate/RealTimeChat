@@ -13,7 +13,11 @@ class SocketAddress {
 public:
 	SocketAddress(uint32_t inAddress, uint16_t inPort) { // IPV4 Constructor
 		GetAsSockAddrIn()->sin_family = AF_INET;
+	#if defined(_WIN32) || defined(__CYGWIN)
 		GetAsSockAddrIn()->sin_addr.S_un.S_addr = htonl(inAddress);
+	#else
+		GetAsSockAddrIn()->sin_addr.s_addr = htonl(inAddress);
+	#endif
 		GetAsSockAddrIn()->sin_port = htons(inPort);
 	}
 	SocketAddress(const uint8_t inAddress[16], uint16_t inPort) { // IPV6 Constructor
