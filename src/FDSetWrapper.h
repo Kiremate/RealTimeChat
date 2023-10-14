@@ -5,7 +5,9 @@
 #include <iterator>
 
 class BloodSocket;
-
+/// <summary>
+/// This class is a wrapper for the fd_set making it more efficient when looping through
+/// </summary>
 class FdSetWrapper {
 public:
     FdSetWrapper();
