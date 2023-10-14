@@ -1,4 +1,5 @@
 #include "SocketUtil.h"
+#include "PlatformErrorIncludes.h"
 #include "BloodSocket.h"
 #include "FDSetWrapper.h"
 #include <iostream>
