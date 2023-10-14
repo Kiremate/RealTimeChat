@@ -5,7 +5,7 @@ class SocketAddress;
 
 class UDPSocket : public BloodSocket{
 public:
-	~UDPSocket();
+	~UDPSocket() override;
 	int Bind(const SocketAddress& inToAddress) override;
 	int SendTo(const void* inData, int inLen, const SocketAddress& inTo);
 	int ReceiveFrom(void* inBuffer, int inLen, SocketAddress& outFrom);

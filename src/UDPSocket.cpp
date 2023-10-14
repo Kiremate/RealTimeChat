@@ -1,6 +1,12 @@
 #include "UDPSocket.h"
 #include "SocketUtil.h"
 #include "SocketAddress.h"
+
+UDPSocket::~UDPSocket()
+{
+	
+}
+
 int UDPSocket::Bind(const SocketAddress& inBindAddress)
 {
 	auto error = bind(mSocket, &inBindAddress.mSockAddr, inBindAddress.GetSize());
@@ -42,7 +48,4 @@ int UDPSocket::SetNonBlockingMode(bool inShouldBeNonBlocking)
 	return BloodSocket::SetNonBlockingMode(inShouldBeNonBlocking);
 }
 
-UDPSocket::~UDPSocket()
-{
-	closesocket(mSocket);
-}
+

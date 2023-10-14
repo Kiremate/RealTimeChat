@@ -4,7 +4,7 @@
 
 TCPSocket::~TCPSocket()
 {
-	closesocket(mSocket);
+	
 }
 
 int TCPSocket::Connect(const SocketAddress& inAddress)

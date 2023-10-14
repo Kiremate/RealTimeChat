@@ -5,7 +5,7 @@ class SocketAddress;
 
 class TCPSocket : public BloodSocket{
 public:
-	~TCPSocket();
+	~TCPSocket() override;
 	int Connect(const SocketAddress& inAddress);
 	int Bind(const SocketAddress& inToAddress) override;
 	int Listen(int inBackLog = 32);

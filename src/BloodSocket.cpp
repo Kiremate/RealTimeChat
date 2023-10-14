@@ -1,5 +1,14 @@
 #include "BloodSocket.h"
 #include "SocketUtil.h"
+
+BloodSocket::~BloodSocket() {
+    #if defined(_WIN32) || defined(__CYGWIN)
+        closesocket(mSocket);
+    #else
+        close(mSocket);
+    #endif
+}
+
 int BloodSocket::SetNonBlockingMode(bool inShouldBeNonBlocking)
 {
     int result = 0;  // Initialize result to a neutral value
