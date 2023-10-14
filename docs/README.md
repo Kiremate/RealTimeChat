@@ -31,9 +31,23 @@ The project uses object-oriented programming and factory patterns to encapsulate
 + Visual Studio installed with C++ Support
 + Open the .sln build the project
 ### Linux / Unix 🐧
-+ Open terminal and navigate to the project directory
-+ Run 'make' to build the project.
-+ Execute the output binary.
++ Ensure you have g++ and make installed on your system.
+```
+sudo apt update
+sudo apt install build-essential
+```
++ Open terminal and navigate to the project directory.
+```
+cd /RealTimeChat
+```
++ Run the following command to compile the project:
+```
+g++ -o RealTimeChat src/*.cpp
+```
++ Run the output binary to start the program
+```
+./RealTimeChat
+```
 
 ## Author 👤
 Bloodmask
