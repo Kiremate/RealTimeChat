@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +138,7 @@
     <ClCompile Include="..\..\src\BloodSocket.cpp" />
     <ClCompile Include="..\..\src\FdSetWrapper.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\src\SocketLibraryInitializer.cpp" />
     <ClCompile Include="..\..\src\SocketUtil.cpp" />
     <ClCompile Include="..\..\src\TCPSocket.cpp" />
     <ClCompile Include="..\..\src\UDPSocket.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="..\..\src\PlatformSocketIncludes.h" />
     <ClInclude Include="..\..\src\SocketAddressFactory.h" />
     <ClInclude Include="..\..\src\SocketFactory.h" />
+    <ClInclude Include="..\..\src\SocketLibraryInitializer.h" />
     <ClInclude Include="..\..\src\SocketUtil.h" />
     <ClInclude Include="..\..\src\TCPSocket.h" />
     <ClInclude Include="..\..\src\UDPSocket.h" />
