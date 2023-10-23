@@ -155,6 +155,7 @@
     <ClInclude Include="..\..\src\SocketLibraryInitializer.h" />
     <ClInclude Include="..\..\src\SocketUtil.h" />
     <ClInclude Include="..\..\src\TCPSocket.h" />
+    <ClInclude Include="..\..\src\ThreadPool.h" />
     <ClInclude Include="..\..\src\UDPSocket.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

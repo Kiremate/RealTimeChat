@@ -1,8 +1,32 @@
 #include <iostream>
-using namespace std;
+#include <chrono>
+#include "ThreadPool.h"  
 
 int main() {
-	cout << "Hello World" << endl;
+    ThreadPool pool(4);
 
-	return 0;
+    bool running = true;
+    int i = 0;
+
+    std::thread inputThread([&running] {
+        char ch;
+        std::cout << "Press 'F' to stop..." << std::endl;
+        do {
+            std::cin >> ch;
+        } while (ch != 'F' && ch != 'f');
+        running = false;
+        });
+
+    while (running) {
+        pool.enqueueJob([i] {
+            std::cout << "Printing: " << i << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(200));  
+            });
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        ++i;
+    }
+
+    inputThread.join();
+
+    return 0;
 }
