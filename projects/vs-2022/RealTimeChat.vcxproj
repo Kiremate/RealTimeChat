@@ -137,7 +137,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\BloodSocket.cpp" />
     <ClCompile Include="..\..\src\FdSetWrapper.cpp" />
+    <ClCompile Include="..\..\src\InputMemoryStream.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\src\OutputMemoryStream.cpp" />
     <ClCompile Include="..\..\src\SocketLibraryInitializer.cpp" />
     <ClCompile Include="..\..\src\SocketUtil.cpp" />
     <ClCompile Include="..\..\src\TCPSocket.cpp" />
@@ -146,8 +148,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\BloodSocket.h" />
     <ClInclude Include="..\..\src\FdSetWrapper.h" />
+    <ClInclude Include="..\..\src\InputMemoryStream.h" />
+    <ClInclude Include="..\..\src\NetworkManager.h" />
+    <ClInclude Include="..\..\src\NetworkManagerClient.h" />
+    <ClInclude Include="..\..\src\OutputMemoryStream.h" />
     <ClInclude Include="..\..\src\PlatformErrorIncludes.h" />
-    <ClInclude Include="..\..\src\Server.h" />
     <ClInclude Include="..\..\src\SocketAddress.h" />
     <ClInclude Include="..\..\src\PlatformSocketIncludes.h" />
     <ClInclude Include="..\..\src\SocketAddressFactory.h" />
