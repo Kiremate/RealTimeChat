@@ -1,6 +1,6 @@
 #include "InputMemoryStream.h"
 #include <stdexcept>
-
+#include <cstring>
 void InputMemoryStream::Read(void* outData, uint32_t inByteCount)
 {
 	if ((mHead + inByteCount) > mCapacity)

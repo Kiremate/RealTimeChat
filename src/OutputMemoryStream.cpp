@@ -1,6 +1,6 @@
 #include "OutputMemoryStream.h"
 #include <iostream>
-
+#include <cstring>
 void OutputMemoryStream::Write(const void* inData, size_t inByteCount)
 {
 	uint32_t resultHead = mHead + static_cast<uint32_t>(inByteCount);
