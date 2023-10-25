@@ -1,5 +1,6 @@
 #pragma once
-#include <cstdint>
+#include <cstdint> 
+#include <cstdlib> 
 #include <memory>
 #include <type_traits>
 class OutputMemoryStream{

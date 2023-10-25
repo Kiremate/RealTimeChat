@@ -1,6 +1,7 @@
 #pragma once
-#include <cstdint>
-#include <memory>
+#include <cstdint> 
+#include <cstdlib> 
+#include <cstring> 
 class InputMemoryStream{
 
 public:

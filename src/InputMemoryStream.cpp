@@ -6,7 +6,7 @@ void InputMemoryStream::Read(void* outData, uint32_t inByteCount)
 	if ((mHead + inByteCount) > mCapacity)
 		throw std::runtime_error("Not enough bytes left in stream to perform read operation");
 	
-	std::memcpy(outData, mBuffer + mHead, inByteCount);
+	memcpy(outData, mBuffer + mHead, inByteCount);
 	mHead += inByteCount;
 }
 void InputMemoryStream::ResetToZero() {
